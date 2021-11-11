@@ -1,0 +1,232 @@
+/*Template Set-ups*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+    --primary-color: #B91508;
+    --neutral-color: #fafbfb;
+    font-size: 16px;
+}
+body{
+    max-width: 100%;
+    min-height: 100vh;
+}
+/*Template Set-ups*/
+
+
+/*Header/Navigation Bar*/
+header{
+    background-color: var(--neutral-color);
+    box-shadow: 0 0 5px darkgray;
+}
+.navigation-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    padding: .5em 2.5em;
+}
+.navigation{
+    display: flex;
+}
+.navigation li{
+    list-style: none;
+    padding: .5em;
+    border-bottom: transparent solid 3px;
+}
+.navigation a{
+    text-decoration: none;
+    font-size: 3vmin;
+    font-weight: bold;
+    color: black;
+    display: block;
+}
+.navigation a:hover, .navigation a:focus-within{
+    color: var(--primary-color);
+    transition: color .2s ease-in-out;
+}
+.navigation li ul li:hover, .navigation li ul li:focus-within{
+    transition: border-bottom .3s ease-in-out;
+    border-bottom: var(--primary-color) solid 3px;
+    border-bottom-width: 90%;
+}
+.navigation li:hover .dropdown, .navigation li:focus-within .dropdown{
+    visibility: visible;
+    opacity: 1;
+}
+.dropdown{
+    background-color: var(--neutral-color);
+    box-shadow: 0 0 10px darkgray;
+    border-radius: 5px;
+    top: 5%;
+    width: auto;
+    padding-bottom: 0em;
+    position: absolute;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms ease-in-out;
+}
+.dropdown li a{
+    font-size: 1em;
+}
+.logo1{
+    width: 20vmin;
+}
+.logo2{
+    display: none;
+}
+.shrink{
+    transition: all .25s ease-in-out;
+}
+.shrink:hover{
+    transform: scale(.9);
+}
+/*Header/Navigation Bar*/
+
+/*Main Content*/
+.maintitle{
+    text-align: center;
+    padding: 2rem 0;
+    text-decoration: solid underline var(--primary-color) 3px;
+    text-underline-offset: 6px;
+}
+.maindescription{
+    text-align: center;
+    padding: 1rem 0;
+}
+.mainimage{
+    display: block;
+    margin: auto;
+    width: 50vmin;
+}
+.description{
+    text-align: center;
+    padding: .5rem 0 1rem 0;
+}
+.container{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+}
+.checkbox-container{
+    border: 2px solid white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+    min-width: 300px;
+    max-width: 600px;
+    width: 70vmin;
+}
+.labentrylist{
+    margin: auto;
+    max-width: 500px;
+    list-style: none;
+}
+.labentrylist a{
+    text-decoration: none;
+    color: var(--primary-color);
+    display: block;
+    padding: .5em;
+    font-size: 1em;
+}
+.labentrysteps li{
+    min-width: 350px;
+    max-width: 90vmin;
+    margin: auto;
+}
+.contributeimage{
+    display: block;
+    margin: auto;
+    max-width: 70%;
+    min-width: 45vmax;
+    border: 3px solid black;
+}
+.labimage{
+    display: block;
+    margin: auto;
+    max-width: 95%;
+    min-width: 45vmax;
+    height: auto;
+    border: 3px solid black;
+}
+
+/*CHECKBOX STYLES*/
+
+input[type="checkbox"] {
+    top: 2px;
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 50%;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    vertical-align: top;
+}
+input[type="checkbox"]::before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 2px;
+    left: 6px;
+    width: 5px;
+    height: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+input[type="checkbox"]:checked {
+    color: white;
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+}
+input[type="checkbox"]::before {
+    opacity: 1;
+}
+label{
+    cursor: pointer;
+    padding: 0 0.25em;
+    font-size: 1.2em;
+    display: inline-block;
+    width: 90%;
+}
+.checklist-item:checked + label{
+      color: lightgray;
+      text-decoration: line-through;
+      text-decoration-color: var(--primary-color);
+      transition: all .2s ease-in-out;
+}
+
+/*Main Content*/
+
+/*Mobile Responsiveness*/
+@media screen and (max-width: 510px){
+    .logo1{
+        display: none;
+      }
+   
+    .logo2{
+        display: block;
+        max-height: 34px;
+      }
+    .navigation-container{
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .dropdown{
+        padding-bottom: 0em;
+    }
+    .dropdown li a{
+        font-size: 2.5vmin;
+    }
+}
+/*Mobile Responsiveness*/
